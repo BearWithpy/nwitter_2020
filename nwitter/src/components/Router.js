@@ -24,3 +24,5 @@ const AppRouter = ({ isLoggedIn }) => {
 };
 
 export default AppRouter;
+
+// Error 잡아야 함...ㄷㄷㄷ
