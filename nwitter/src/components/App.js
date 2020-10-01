@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fbase";
 
 function App() {
-  const [initialized, setInit] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser);
+  const [init, setInit] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userObj, setUserObj] = useState(null);
-
   useEffect(() => {
     authService.onAuthStateChanged((user) => {
       if (user) {
@@ -18,13 +17,12 @@ function App() {
       setInit(true);
     });
   }, []);
-
   return (
     <>
-      {initialized ? (
+      {init ? (
         <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} />
       ) : (
-        "initializing..."
+        "Initializing..."
       )}
       <footer>&copy; {new Date().getFullYear()} Nwitter</footer>
     </>
