@@ -56,7 +56,7 @@ const Home = ({ userObj }) => {
     };
     reader.readAsDataURL(theFile);
   };
-  const onClearAttachment = () => setAttachment("");
+  const onClearAttachment = () => setAttachment(null);
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -89,6 +89,8 @@ const Home = ({ userObj }) => {
   );
 };
 
-export default Home;
 
-//201021
+
+
+
+export default Home;
