@@ -25,4 +25,6 @@ export default ({ userObj }) => {
       <button onClick={onLogOutClick}>Log Out</button>
     </>
   );
+
+  
 };
