@@ -14,7 +14,7 @@ export default ({ userObj }) => {
       .where("creatorId", "==", userObj.uid)
       .orderBy("createdAt")
       .get();
-    console.log(nweets.docs.map((doc) => doc.data()))  ;
+    console.log(nweets.docs.map((doc) => doc.data()));
   };
 
   useEffect(() => {
@@ -25,6 +25,6 @@ export default ({ userObj }) => {
       <button onClick={onLogOutClick}>Log Out</button>
     </>
   );
-
-  
 };
+
+//20201101
