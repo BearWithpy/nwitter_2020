@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
 
-const inputStyles = {};
+//const inputStyles = {};
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [newAccount, setNewAccount] = useState(true);
   const [error, setError] = useState("");
+
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -18,6 +19,7 @@ const AuthForm = () => {
       setPassword(value);
     }
   };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -30,11 +32,12 @@ const AuthForm = () => {
       } else {
         data = await authService.signInWithEmailAndPassword(email, password);
       }
-      console.log(data);
+      //console.log(data);
     } catch (error) {
       setError(error.message);
     }
   };
+
   const toggleAccount = () => setNewAccount((prev) => !prev);
   return (
     <>
@@ -70,4 +73,5 @@ const AuthForm = () => {
     </>
   );
 };
+
 export default AuthForm;

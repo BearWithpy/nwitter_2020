@@ -39,4 +39,5 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
     </Router>
   );
 };
+
 export default AppRouter;
