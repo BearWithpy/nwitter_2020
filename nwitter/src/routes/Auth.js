@@ -21,6 +21,7 @@ const Auth = () => {
     }
     await authService.signInWithPopup(provider);
   };
+
   return (
     <div className="authContainer">
       <FontAwesomeIcon
@@ -41,4 +42,5 @@ const Auth = () => {
     </div>
   );
 };
+
 export default Auth;

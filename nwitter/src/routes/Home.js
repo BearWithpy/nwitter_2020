@@ -5,6 +5,7 @@ import NweetFactory from "components/NweetFactory";
 
 const Home = ({ userObj }) => {
   const [nweets, setNweets] = useState([]);
+
   useEffect(() => {
     dbService.collection("nweets").onSnapshot((snapshot) => {
       const nweetArray = snapshot.docs.map((doc) => ({
@@ -14,6 +15,7 @@ const Home = ({ userObj }) => {
       setNweets(nweetArray);
     });
   }, []);
+
   return (
     <div className="container">
       <NweetFactory userObj={userObj} />
@@ -29,4 +31,5 @@ const Home = ({ userObj }) => {
     </div>
   );
 };
+
 export default Home;
