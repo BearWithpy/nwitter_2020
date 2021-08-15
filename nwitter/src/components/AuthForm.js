@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { authService } from "fbase";
 
-//const inputStyles = {};
+// const inputStyles = {};
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ const AuthForm = () => {
       } else {
         data = await authService.signInWithEmailAndPassword(email, password);
       }
-      //console.log(data);
+      console.log(data);
     } catch (error) {
       setError(error.message);
     }

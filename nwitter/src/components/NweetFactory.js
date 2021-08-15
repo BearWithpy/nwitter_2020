@@ -7,12 +7,11 @@ import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
 const NweetFactory = ({ userObj }) => {
   const [nweet, setNweet] = useState("");
   const [attachment, setAttachment] = useState("");
-
   const onSubmit = async (event) => {
+    event.preventDefault();
     if (nweet === "") {
       return;
     }
-    event.preventDefault();
     let attachmentUrl = "";
     if (attachment !== "") {
       const attachmentRef = storageService
@@ -31,14 +30,12 @@ const NweetFactory = ({ userObj }) => {
     setNweet("");
     setAttachment("");
   };
-
   const onChange = (event) => {
     const {
       target: { value },
     } = event;
     setNweet(value);
   };
-
   const onFileChange = (event) => {
     const {
       target: { files },
@@ -51,11 +48,11 @@ const NweetFactory = ({ userObj }) => {
       } = finishedEvent;
       setAttachment(result);
     };
-    reader.readAsDataURL(theFile);
+    if (Boolean(theFile)) {
+      reader.readAsDataURL(theFile);
+    }
   };
-
   const onClearAttachment = () => setAttachment("");
-
   return (
     <form onSubmit={onSubmit} className="factoryForm">
       <div className="factoryInput__container">
@@ -99,5 +96,4 @@ const NweetFactory = ({ userObj }) => {
     </form>
   );
 };
-
 export default NweetFactory;

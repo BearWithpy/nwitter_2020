@@ -9,3 +9,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+// Published
+// https://bearwithpy.github.io/nwitter_2020
